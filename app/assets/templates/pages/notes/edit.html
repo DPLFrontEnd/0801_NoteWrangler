@@ -1,0 +1,31 @@
+<div class="page-header">
+	<h1>EDIT: {{ data.title }}</h1>
+	
+</div>
+
+<form>
+	<fieldset class="form-group">
+		<label>Title</label>
+		<input type="text" ng-model="data.title" class="form-control">
+	</fieldset>
+</form>
+<form>
+	<fieldset class="form-group">
+		<label>Description</label>
+		<input type="text" ng-model="data.description" class="form-control">
+	</fieldset>
+</form>
+<form>
+	<fieldset class="form-group">
+		<label>Content</label>
+		<input type="text" ng-model="data.content" class="form-control">
+	</fieldset>
+</form>
+<input ng-click="saveNote(data)" type="submit" value="Save" class="btn btn-default">
+
+
+<!-- <small>{{data.user.name}}</small>	
+<p> {{ data.content }} </p>
+
+<a href="" class="btn btn-primary">Edit</a>
+<a href="" class="btn btn-danger">Delete</a> -->

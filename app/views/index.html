@@ -1,26 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="NoteWrangler">
 <head>
 	<meta charset="UTF-8">
 	<title>Note Wrangler</title>
 	<!-- 1.1 We'll link to bootstrapcdn here. -->
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
-	<h1>Note Wrangler 1</h1>
-	<div>
-		
-	</div>
-	<!-- 1. First let's go get our dependencies for the project. We'll need Bootstrap, jQuery, AngularJS ngRouter, and ngResource -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-brand">
+				<a href="/">NoteWrangler</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/#/notes">Notes</a></li>
+				<li><a href="/#/users">Users</a></li>
 
-	<!-- 1.2 link to jQuery CDN -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+			</ul>
+		</div>
+	</nav>
 
-	<!-- 1.3 links to AngularJS -->
-	<!-- These files were downloaded from http://code.angularjs.org/1.3.9/ -->
-	<script src="/assets/js/vendor/angular.min.js"></script>
-	<script src="/assets/js/vendor/angular-route.min.js"></script>
-	<script src="/assets/js/vendor/angular-resource.min.js"></script>
+	<div ng-view class="container-fluid"></div>
+
+
+<!-- Scripts -->
+
+<!-- Vendor -->
+	<script src="/assets/js/vendor/jquery-2.1.3.min.js"></script>
+
+	<script src="/assets/js/vendor/angular.js"></script>
+	<script src="/assets/js/vendor/angular-route.js"></script>
+	<script src="/assets/js/vendor/angular-resource.js"></script>
+
+	<!-- App -->
+	<script src="/assets/js/app.js"></script>
+
+	<!-- Controllers -->
+	<script src="/assets/js/controllers/notesIndexController.js"></script>
+	<script src="/assets/js/controllers/noteShowController.js"></script>
+	<script src="/assets/js/controllers/noteEditController.js"></script>
+
+	<!-- Directives -->
+	<script src="/assets/js/directives/nwNote.js"></script>
+
+
+	<!-- Services -->
 
 </body>
 </html>
