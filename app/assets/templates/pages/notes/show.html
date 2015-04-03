@@ -5,4 +5,4 @@
 <p> {{ data.content }} </p>
 
 <a ng-href="/#/notes/{{data.id}}/edit" class="btn btn-primary">Edit</a>
-<a href="" class="btn btn-danger">Delete</a>
+<a ng-click="deleteNote(data)" class="btn btn-danger">Delete</a>
