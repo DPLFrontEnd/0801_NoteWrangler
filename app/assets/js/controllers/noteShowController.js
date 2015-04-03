@@ -1,22 +1,14 @@
 angular.module('NoteWrangler')
 	.controller('NoteShowController', 
-		['$http','$scope', '$routeParams', '$location',
-			function($http, $scope, $routeParams, $location){
+		['Note','$scope', '$routeParams', '$location',
+			function( Note, $scope, $routeParams, $location){
 			// $http({method:"GET", url:'/notes'})
-			// _this = this; 
-			$http.get('/notes/'+$routeParams.id).success(function(data){
-				// _this.data = data
-				$scope.data = data;
-			});
+
+			$scope.data = Note.get({id: $routeParams.id});	
 
 			$scope.deleteNote = function(note){
-				$http({method:"DELETE", url:"notes/"+note.id})
-					.success(function(data){
-						console.log(data);
-					})
-					.error(function(data){
-						console.log("ERROR: "+data);
-					});
+				Note.remove({id: note.id});
+					
 				$location.path('/notes/');
 			};
 	}]);

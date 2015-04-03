@@ -1,26 +1,17 @@
 angular.module('NoteWrangler')
 	.controller('NoteEditController', 
-		['$http','$scope', '$routeParams', '$location', 
-			function($http, $scope, $routeParams, $location){
+		['Note','$scope', '$routeParams', '$location', 
+			function(Note, $scope, $routeParams, $location){
 				$scope.isSubmitting = false;
-
+				$scope.isEdit = true;
 				// $http({method:"GET", url:'/notes'})
 				// _this = this; 
-				$http.get('/notes/'+$routeParams.id).success(function(data){
-					// _this.data = data
-					$scope.data = data;
-				});
+				$scope.data = Note.get({id: $routeParams.id});
 
-				$scope.saveNote = function(note){
+				$scope.saveNote = function(data){
 					$scope.isSubmitting = true;
-					$http({method:"PUT", url:'/notes/'+ note.id, data: note })
-						.success(function(data){
-							console.log("SUCCESS: " + data);
-							$scope.isSubmitting = false;
-						}).error(function(data){
-							console.log("ERROR: " + data);
-							$scope.isSubmitting = false;
-						});
-					$location.path("/notes/"+note.id);
+					data.$update();
+						
+					$location.path("/notes/"+data.id);
 				}
 		}]);

@@ -1,7 +1,7 @@
 (function(){
 
 	// 1. Start the application
-	angular.module('NoteWrangler', ['ngRoute'])
+	angular.module('NoteWrangler', ['ngRoute', 'ngResource'])
 		.config(function($routeProvider){
 			$routeProvider
 				.when('/notes', { 
